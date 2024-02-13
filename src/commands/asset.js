@@ -11,7 +11,10 @@ module.exports = {
         .setName("info")
         .setDescription("Get the info from a specific Product")
         .addNumberOption((option) =>
-          option.setName("asset-id").setDescription("ID of the product")
+          option
+            .setName("asset-id")
+            .setDescription("ID of the product")
+            .setRequired(true)
         )
     )
     .addSubcommand((subcommand) =>
@@ -19,7 +22,10 @@ module.exports = {
         .setName("gamepass")
         .setDescription("Get the info from a specific gamepass")
         .addNumberOption((option) =>
-          option.setName("gamepass-id").setDescription("ID of the product")
+          option
+            .setName("gamepass-id")
+            .setDescription("ID of the product")
+            .setRequired(true)
         )
     ),
   run: () => {},
