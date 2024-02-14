@@ -13,6 +13,7 @@ module.exports = async (interaction) => {
     if (subcommand === "info") {
       const assetId = interaction.options.getNumber("asset-id");
       const productInfo = await noblox.getProductInfo(assetId);
+      console.log(productInfo);
       const assetName = productInfo.Name;
       const assetCreator = productInfo.Creator;
       const assetPrice = productInfo.PriceInRobux;
@@ -24,16 +25,17 @@ module.exports = async (interaction) => {
       const info = new EmbedBuilder()
         .setColor("Random")
         .setAuthor({ name: "Roblox Marketplace" })
-        .setTitle(`[${assetName}](${aredir})`)
-        .setDescription(assetDesc)
+        .setDescription(`### [${assetName}](${aredir})`)
         .addFields(
           {
-            name: "Price",
+            name: "Price (in Robux)",
             value: `${assetPrice}`,
+            inline: true,
           },
           {
             name: "Creator",
             value: `[${assetCreator.Name}](${credir}) `,
+            inline: true,
           }
         );
 
